@@ -1,0 +1,22 @@
+#div0 {
+    position: absolute; 
+    background-color: darkcyan;
+    height: 400px;
+    width: 300px;
+    margin-left: 100px;
+}
+#div1 {
+    position: absolute;
+    background-color: darkgoldenrod;
+    height: 400px;
+    width: 300px;
+    margin-left: 500px;
+}
+#span {
+    position: fixed;
+    width: 250px;
+    height: 80px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
+}
