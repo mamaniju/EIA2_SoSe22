@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Settings</title>
+    <link rel="stylesheet" href="memory.css">
+    <script src="memory.js"></script>
+</head>
+<body>
+    <h1>Memory Settings</h1>
+    <p id="time"></p>
+    <div id= "container"></div>
+    <span id="card"></span>
+
+    <div id="settings">
+        <form>
+            <fieldset>
+                <legend>Number of pair</legend>
+                <input type="number" name="pair" min="5" max="25" step="1" value="5">
+            </fieldset>
+            <fieldset>
+                <legend>Size of cards</legend>
+                50px
+                <input type="range" name="cardSize" min="50" max="100" step="10" value="50">
+                100px
+            </fieldset>
+            <fieldset>
+                <legend>Colors</legend>
+                <label for="backgroundColor">Background color:</label>
+                <input type="color" name="backgroundColor" value="#fff00f">
+                <br>
+                <label for="cardBackColor">Cardback color:</label>
+                <input type="color" name="cardBackColor" value="#ff00f0">
+                <br>
+                <label for="fontColor">Font color:</label>
+                <input type="color" name="fontColor" value="#00ff00">
+            </fieldset>
+            <fieldset>
+                <legend>Font</legend>
+                <label for="Arial">Arial</label>
+                <input type="radio" name="fontFamily" value="Arial" checked>
+                <br>
+                <label for="Times New Roman" id="fontTimesNewRomanLabel">Times New Roman</label>
+                <input type="radio" name="fontFamily" value="Times New Roman">
+                <br>
+                <label for="Courier" id="fontCourier">Courier</label>
+                <input type="radio" name="fontFamily" value="Courier">
+            </fieldset>
+        </form>
+        <br>
+        <input type="submit" id="startButton" value="Start">
+    </div>
+    <div id="playGround" class="hidden"></div>
+    
+</body>
+</html>
