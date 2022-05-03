@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,51 +9,50 @@
     <link rel="stylesheet" href="memory.css">
     <script src="memory.js"></script>
 </head>
-<body>
-    <h1>Memory Settings</h1>
-    <p id="time"></p>
-    <div id= "container"></div>
-    <span id="card"></span>
 
-    <div id="settings">
-        <form>
+<body>
+    <form>
+        <div id="allForm">
+            <h1>Memory Settings</h1>
+            <p id="time"></p>
             <fieldset>
                 <legend>Number of pair</legend>
-                <input type="number" name="pair" min="5" max="25" step="1" value="5">
+                <input type="number" name="pair" id="pair" min="5" max="25" step="1" value="5">
             </fieldset>
             <fieldset>
                 <legend>Size of cards</legend>
                 50px
-                <input type="range" name="cardSize" min="50" max="100" step="10" value="50">
+                <input type="range" name="cardSize" id="cardSize" min="50" max="100" step="10" value="50">
                 100px
             </fieldset>
             <fieldset>
                 <legend>Colors</legend>
                 <label for="backgroundColor">Background color:</label>
-                <input type="color" name="backgroundColor" value="#fff00f">
+                <input type="color" name="backgroundColor" id="backgroundColor" value="#ebcb8f">
                 <br>
-                <label for="cardBackColor">Cardback color:</label>
-                <input type="color" name="cardBackColor" value="#ff00f0">
+                <label for="cardbackColor">Cardback color:</label>
+                <input type="color" name="cardbackColor" id="cardbackColor" value="#067561">
                 <br>
                 <label for="fontColor">Font color:</label>
-                <input type="color" name="fontColor" value="#00ff00">
+                <input type="color" name="fontColor" id="fontColor" value="#fafafa">
             </fieldset>
             <fieldset>
                 <legend>Font</legend>
-                <label for="Arial">Arial</label>
-                <input type="radio" name="fontFamily" value="Arial" checked>
+                <label for="Arial" id="arialLabel"> Arial</label>
+                <input type="radio" name="fontFamily" id="arial" value="arial" checked>
                 <br>
-                <label for="Times New Roman" id="fontTimesNewRomanLabel">Times New Roman</label>
-                <input type="radio" name="fontFamily" value="Times New Roman">
+                <label for="Time New Roman" id="timeNewRomanLabel">Time New Roman</label>
+                <input type="radio" name="fontFamily" id="timeNewRoman" value="Time New Roman" checked>
                 <br>
-                <label for="Courier" id="fontCourier">Courier</label>
-                <input type="radio" name="fontFamily" value="Courier">
+                <label for="Courier" id="courierLabel">Courier</label>
+                <input type="radio" name="fontFamily" id="courier" value="Courier" checked>
             </fieldset>
-        </form>
-        <br>
-        <input type="submit" id="startButton" value="Start">
+            <input type="submit" id="startButton" value="Start">
+    </form>
     </div>
-    <div id="playGround" class="hidden"></div>
-    
+    <div id="playStart" class="hidden"></div> <!-- hidden (oculto) -->
+
+
 </body>
+
 </html>

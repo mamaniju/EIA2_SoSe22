@@ -1,45 +1,68 @@
 namespace memorySettings {
 
-    //let nPrompt: string = prompt("Enter a number between 5 and 25", "9");
-    let arrayCards: string[] = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
-    
+    let arrayCards: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
+
     window.addEventListener("load", handleLoad);
 
-    function handleLoad(): void {
-        document.addEventListener("keydown", createCards);
+    function handleLoad(_event: Event): void {
+        let divAllForm: HTMLDivElement = <HTMLDivElement>document.getElementById("allForm");
+        divAllForm.addEventListener("change", handleChange); //change lädt das ganze Formular hoch 
+        let startButton: HTMLInputElement = <HTMLInputElement>document.querySelector("#startButton");
+        startButton.addEventListener("click", createCards); //click in Start und wird die createCards function aufgerufen 
         document.addEventListener("click", gameMemory);
+    }
+    function handleChange(): void {
+        createCards();
     }
     // Erstellt die Karten
     function createCards(): void {
-        let fieldSize: number = 0; // ParseInt analysiert einen Wert als Zeichenfolge und gibt die erste ganze Zahl zurück.
+        //Entfert das Formular - Add Spielkarten hinzu 
+        let playStart: HTMLDivElement = <HTMLDivElement>document.getElementById("playStart");
+        playStart.innerHTML = ""; //DOM -> hidden (oculto), weil das Spiel noch nicht gestartet ist. 
+        let allFormHidden: HTMLDivElement = <HTMLDivElement>document.getElementById("allForm");
+        allFormHidden.classList.add("hidden"); //add eine Klasse und versteckt (hidden/oculto) die ganze Div-Container allForm
+        playStart.classList.remove("hidden"); //entfernt hidden und macht das Div-Container playStart sichtbar 
+
+        //Data Formular//
+        let formData: FormData = new FormData(document.forms[0]); // FormData ist ein einfacher Mechanismus, um das Formularelemente automatisch auszuwerten. 
+        let fieldSize: number = parseInt(formData.get("pair") + ""); //Number of pair -> die Anzahlpaar der Karte wird der Nutzer hergestellt. 
+        //let cardSize: string = formData.get("cardSize") + "px"; 
+        //let backgroundColor: string = formData.get("backgroundColor") + ""; 
+        //let cardbackColor: string = formData.get("cardbackColor") + ""; 
+        //let fontColor: string = formData.get()
         let gameCards: string[] = [];
-        let cardSpan: HTMLElement = <HTMLElement>document.getElementById("card");
+        for (let entry of formData) {
+            gameCards.push(String(entry[1]));
+            console.log(gameCards);
+
+        }
+
         arrayCards = arrayCards.sort(() => Math.random() - 0.5); //sort (Alfabetisch aufgeräumt) Math.random (Zufällige Zahl)
-        console.log(arrayCards);
+        //console.log(arrayCards);
 
         for (let i: number = 0; i < fieldSize; i++) {
-            gameCards.push(arrayCards[i]); // [i] hier kommt fieldSize Nummer, weil for diese Wert (fieldSize) erhöht hat. 
+            gameCards.push(arrayCards[i] + ""); // [i] hier kommt fieldSize Nummer, weil for diese Wert (fieldSize) erhöht hat. 
             gameCards.push(arrayCards.splice(i, 1) + ""); // dupliziert die Länge. Mann entfernt in arrayCard (i = fieldSize-Wert, nur ein mal) und dann push diese länge in gameCards. 
-            gameCards = gameCards.sort(() => Math.random() - 0.5 );  
-            
+            gameCards = gameCards.sort(() => Math.random() - 0.5);
+
+
+            let cardSpan: HTMLElement = <HTMLElement>document.createElement("span");
+            playStart.appendChild(cardSpan);
+            cardSpan.classList.add("card");
+            cardSpan.setAttribute("id", "span" + i);
+
             for (let i: number = 0; i < gameCards.length; i++) {
-                cardSpan.innerHTML = gameCards[i]; 
-                cardSpan.classList.add ("cardSpan");        
+                cardSpan.innerHTML = gameCards[i];
             }
+
         }
-       
-        
-        
-
-
 
 
     }
 
     function gameMemory(): void {
-        console.log(gameMemory);
-        
+        //console.log(gameMemory);
+
 
     }
-
 }
